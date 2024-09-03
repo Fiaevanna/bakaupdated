@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import footerCat from "../assets/images/hiroshi/nyhiroshi.png";
+import "@fontsource/rubik-wet-paint";
+---
+
+<footer>
+  <nav>
+    <a href="index.astro">Home</a>
+    <a href="products.astro">Products</a>
+    <a href="aboutUs.astro">About Us</a>
+    <a href="references.astro">References</a>
+    <a href="contactUs.astro">Contact Us</a>
+    <a href="cart.astro">Cart</a>
+  </nav>
+  <section>
+    <h2>Clothes for “BAKA”</h2>
+    <Image class="image" src={footerCat} alt="Image of cat" height="40" />
+  </section>
+</footer>
+
+<style>
+  footer {
+    background-color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    padding: 10px;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+  }
+
+  a {
+    color: #ffffff;
+    mix-blend-mode: difference;
+    text-decoration: none;
+
+    font-size: 13px;
+  }
+
+  h2 {
+    font-family: "Rubik Wet Paint", serif;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  p {
+    color: #ffffff;
+    mix-blend-mode: difference;
+    font-size: 10px;
+  }
+
+  .image {
+    opacity: 0.6;
+  }
+</style>
