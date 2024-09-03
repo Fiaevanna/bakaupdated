@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+import headerImage from "../assets/images/headerprofile/headerImage.jpg";
+import "@fontsource/rubik-wet-paint";
+import Button from "./Button.astro";
+---
+
+<header>
+  <div class="headerContent">
+    <nav>
+      <a class="active" href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="refrences.html">References</a>
+      <a href="contactUs.html">Contact Us</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <h1>Clothes for "BAKA"</h1>
+    <div class="headerCta"><Button /></div>
+  </div>
+  <div class="headerImage">
+    <img src={headerImage.src} alt="header background image " />
+  </div>
+</header>
+
+<style>
+  header {
+    position: relative;
+    padding-top: 10px;
+  }
+
+  .headerImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  }
+
+  .headerImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+  }
+
+  .headerContent {
+    display: flex;
+    z-index: 1;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 17px;
+  }
+
+  .mainBtn {
+    margin-bottom: 9px;
+    margin-top: 5px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    min-width: 350px;
+  }
+
+  nav :active {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-family: "Rubik Wet Paint", serif;
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ccccc6;
+    
+  }
+
+  .headerCta{
+    position: relative;
+    top: 20px;
+  }
+</style>
