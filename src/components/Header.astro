@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import headerImage from "../assets/images/headerprofile/headerImage.jpg";
+import landingpageImageOne from "../assets/images/headerimages/headerImageOne.png";
+import landingpageImageTwo from "../assets/images/headerimages/headerImageTwo.png";
 import "@fontsource/rubik-wet-paint";
 import Button from "./Button.astro";
 ---
@@ -21,6 +23,18 @@ import Button from "./Button.astro";
     <img src={headerImage.src} alt="header background image " />
   </div>
 </header>
+<div class="landingpageImages">
+  <img
+    src={landingpageImageTwo.src}
+    class="homeImage"
+    alt="Girl modell in hoodie"
+  />
+  <img
+    src={landingpageImageOne.src}
+    class="homeImage"
+    alt="Guy modell in hoodie"
+  />
+</div>
 
 <style>
   header {
@@ -60,10 +74,7 @@ import Button from "./Button.astro";
     font-size: 17px;
   }
 
-  .mainBtn {
-    margin-bottom: 9px;
-    margin-top: 5px;
-  }
+
   nav {
     display: flex;
     justify-content: space-between;
@@ -79,11 +90,21 @@ import Button from "./Button.astro";
     font-size: 30px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #ccccc6;
-    
   }
 
-  .headerCta{
+  .headerCta {
     position: relative;
-    top: 20px;
+    top: 10px;
+  }
+
+  .landingpageImages {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  .homeImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 </style>
