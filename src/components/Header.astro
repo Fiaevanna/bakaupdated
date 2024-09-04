@@ -1,110 +1,85 @@
 ---
-import { Image } from "astro:assets";
 import headerImage from "../assets/images/headerprofile/headerImage.jpg";
-import landingpageImageOne from "../assets/images/headerimages/headerImageOne.png";
-import landingpageImageTwo from "../assets/images/headerimages/headerImageTwo.png";
 import "@fontsource/rubik-wet-paint";
-import Button from "./Button.astro";
+
 ---
 
-<header>
-  <div class="headerContent">
-    <nav>
-      <a class="active" href="/">Home</a>
-      <a href="/Products">Products</a>
-      <a href="/AboutUs">About Us</a>
-      <a href="/ContactUs">Contact Us</a>
-      <a href="/Cart">Cart</a>
+<header class="header">
+  <div class="header__content">
+    <nav class="header__nav">
+      <a class="header__nav-item header__nav-item--active" href="/">Home</a>
+      <a class="header__nav-item" href="/products">Products</a>
+      <a class="header__nav-item" href="/about">About us</a>
+      <a class="header__nav-item" href="/contact">Contact us</a>
+      <a class="header__nav-item" href="/cart">Cart</a>
     </nav>
-    <h1>Clothes for "BAKA"</h1>
-    <div class="headerCta"><Button /></div>
+    <h1 class="header__title">Clothes for "BAKA"</h1>
+    <div class="header__cta">
+      <slot/>
+    </div>
   </div>
-  <div class="headerImage">
-    <img src={headerImage.src} alt="header background image " />
+  <div class="header__image">
+    <img src={headerImage.src} alt="Header background image" />
   </div>
 </header>
-<div class="landingpageImages">
-  <img
-    src={landingpageImageTwo.src}
-    class="homeImage"
-    alt="Girl modell in hoodie"
-  />
-  <img
-    src={landingpageImageOne.src}
-    class="homeImage"
-    alt="Guy modell in hoodie"
-  />
-</div>
 
-<style>
-  header {
+<style lang="scss">
+  .header {
     position: relative;
     padding-top: 10px;
-  }
 
-  .headerImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-  }
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
 
-  .headerImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-  }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.7;
+      }
+    }
 
-  .headerContent {
-    display: flex;
-    z-index: 1;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-  }
+    &__content {
+      display: flex;
+      z-index: 1;
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  a {
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 10px;
-    font-size: 17px;
-  }
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      min-width: 350px;
+    }
 
+    &__nav-item {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 10px;
+      font-size: 17px;
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    min-width: 350px;
-  }
+      &--active {
+        text-decoration: underline;
+      }
+    }
 
-  nav :active {
-    text-decoration: underline;
-  }
+    &__title {
+      font-family: "Rubik Wet Paint", serif;
+      font-size: 30px;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #ccccc6;
+    }
 
-  h1 {
-    font-family: "Rubik Wet Paint", serif;
-    font-size: 30px;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ccccc6;
-  }
-
-  .headerCta {
-    position: relative;
-    top: 10px;
-  }
-
-  .landingpageImages {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-  }
-  .homeImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    &__cta {
+      position: relative;
+      top: 10px;
+    }
   }
 </style>
