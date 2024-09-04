@@ -6,12 +6,11 @@ import "@fontsource/rubik-wet-paint";
 
 <footer>
   <nav>
-    <a href="index.astro">Home</a>
-    <a href="products.astro">Products</a>
-    <a href="aboutUs.astro">About Us</a>
-    <a href="references.astro">References</a>
-    <a href="contactUs.astro">Contact Us</a>
-    <a href="cart.astro">Cart</a>
+    <a class="active" href="/">Home</a>
+    <a href="/Products">Products</a>
+    <a href="/AboutUs">About Us</a>
+    <a href="/ContactUs">Contact Us</a>
+    <a href="/Cart">Cart</a>
   </nav>
   <section>
     <h2>Clothes for “BAKA”</h2>
@@ -40,6 +39,10 @@ import "@fontsource/rubik-wet-paint";
     gap: 15px;
     min-width: 300px;
   }
+  nav :active {
+    text-decoration: underline;
+  }
+
 
   a {
     color: #ffffff;
