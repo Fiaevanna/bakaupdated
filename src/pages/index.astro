@@ -23,6 +23,7 @@ import BaseLayout from "../layout/BaseLayout.astro";
 </BaseLayout>
 
 <style lang="scss">
+  @import "../styles/_variables.scss";
   .landing-page {
     &__images {
       display: flex;
@@ -37,9 +38,21 @@ import BaseLayout from "../layout/BaseLayout.astro";
     }
   }
 
-  // Responsiv anpassning 
+  // Responsiv anpassning
 
-  @media (min) {
-    
+  @media (min-width: $large-breakpoint) {
+    .landing-page {
+      &__images {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      &__image {
+        width: 50%;
+      }
+    }
   }
+
+
 </style>
+

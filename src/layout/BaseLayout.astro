@@ -13,10 +13,10 @@ import Header from "../components/Header.astro";
   </head>
   <body>
     <Header>
-     <slot name="header-cta" />
+      <slot name="header-cta" />
     </Header>
     <main>
-        <slot name="main"/>
+      <slot name="main" />
     </main>
     <Footer />
   </body>
@@ -30,5 +30,4 @@ import Header from "../components/Header.astro";
     display: flex;
     flex-direction: column;
   }
-
 </style>
