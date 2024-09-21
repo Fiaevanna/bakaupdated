@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+const { activeHref } = Astro.props;
 ---
 
 <html lang="en">
@@ -12,13 +13,13 @@ import Header from "../components/Header.astro";
     <title>Clothes For "BAKA"</title>
   </head>
   <body>
-    <Header>
+    <Header activeHref={activeHref}>
       <slot name="header-cta" />
     </Header>
     <main>
       <slot name="main" />
     </main>
-    <Footer />
+    <Footer  activeHref={activeHref}/>
   </body>
 </html>
 

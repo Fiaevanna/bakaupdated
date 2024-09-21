@@ -2,20 +2,52 @@
 import headerImage from "../assets/images/headerprofile/header.png";
 import "@fontsource/rubik-wet-paint";
 
+const { activeHref } = Astro.props;
+
+const navItems = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Products",
+    href: "/products",
+  },
+  {
+    title: "About",
+    href: "/about",
+  },
+  {
+    title: "Contact", 
+    href: "/contact",
+  },
+  {
+    title: "Cart",
+    href: "/cart",
+  },
+];
 ---
 
 <header class="header">
   <div class="header__content">
     <nav class="header__nav">
-      <a class="header__nav-item header__nav-item--active" href="/">Home</a>
-      <a class="header__nav-item" href="/products">Products</a>
-      <a class="header__nav-item" href="/about">About us</a>
-      <a class="header__nav-item" href="/contact">Contact us</a>
-      <a class="header__nav-item" href="/cart">Cart</a>
+      {
+        navItems.map((item) => (
+          <a
+            class:list={[
+              "header__nav-item",
+              { ["header__nav-item--active"]: activeHref === item.href },
+            ]}
+            href={item.href}
+          >
+            {item.title}
+          </a>
+        ))
+      }
     </nav>
     <h1 class="header__title">Clothes for "BAKA"</h1>
     <div class="header__cta">
-      <slot/>
+      <slot />
     </div>
   </div>
   <div class="header__image">

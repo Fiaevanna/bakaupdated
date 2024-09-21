@@ -1,0 +1,60 @@
+---
+interface Image {
+  id: number;
+  imageUrl: string;
+  isActive: boolean;
+}
+
+interface Props {
+  images: Image[];
+  title: string;
+  price: string;
+  sizes: string[];
+  originalPrice: string;
+  discountPercantage: string;
+}
+
+const { images, title, sizes, price, originalPrice, discountPercantage } =
+  Astro.props;
+
+const largeImage = images.find((image) => image.isActive === true);
+const previewImages = images.filter((image) => image.isActive === false);
+---
+
+<div class="product">
+  <div class="product__large-image-parent">
+    <img
+      src={largeImage?.imageUrl}
+      class="product__large-image"
+      alt="sandHoodie product"
+    />
+  </div>
+
+  <div class="product__preview-images-parent">
+    {
+      previewImages.map((image) => (
+        <img
+          src={image.imageUrl}
+          class="product__preview-image"
+          alt="sandHoodie product"
+        />
+      ))
+    }
+  </div>
+
+  <div class="product__info-parent">
+    <h3 class="product__title">{title}</h3>
+    <select class="product__size-select" name="size" id="size">
+      {sizes.map((size) => <option value={size}>{size}</option>)}
+    </select>
+    <h4 class="product__price">{price}</h4>
+    <div>
+      <span class="product__original-price">{originalPrice}</span>
+      <span class="product__discount-percentage">{discountPercantage}</span>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "../styles/_variables.scss";
+</style>
