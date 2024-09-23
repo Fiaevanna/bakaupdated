@@ -1,4 +1,7 @@
 ---
+// Supports weights 100-900
+import Button from "../components/Button.astro";
+import "@fontsource-variable/rokkitt";
 interface Image {
   id: number;
   imageUrl: string;
@@ -22,39 +25,140 @@ const previewImages = images.filter((image) => image.isActive === false);
 ---
 
 <div class="product">
-  <div class="product__large-image-parent">
-    <img
-      src={largeImage?.imageUrl}
-      class="product__large-image"
-      alt="sandHoodie product"
-    />
-  </div>
+  <div class="product__images">
+    <div class="product__large-image-parent">
+      <img
+        src={largeImage?.imageUrl}
+        class="product__large-image"
+        alt="sandHoodie product"
+      />
+    </div>
 
-  <div class="product__preview-images-parent">
-    {
-      previewImages.map((image) => (
-        <img
-          src={image.imageUrl}
-          class="product__preview-image"
-          alt="sandHoodie product"
-        />
-      ))
-    }
+    <div class="product__preview-images-parent">
+      {
+        previewImages.map((image) => (
+          <img
+            src={image.imageUrl}
+            class="product__preview-image"
+            alt="sandHoodie product"
+          />
+        ))
+      }
+    </div>
   </div>
 
   <div class="product__info-parent">
-    <h3 class="product__title">{title}</h3>
-    <select class="product__size-select" name="size" id="size">
-      {sizes.map((size) => <option value={size}>{size}</option>)}
-    </select>
-    <h4 class="product__price">{price}</h4>
-    <div>
-      <span class="product__original-price">{originalPrice}</span>
-      <span class="product__discount-percentage">{discountPercantage}</span>
+    <div class="product__info-price-wrapper">
+      <h3 class="product__title">{title}</h3>
+      <h4 class="product__price">{price}</h4>
+      <div class="product__info-correction-parent">
+        <span>Original Price: </span>
+        <span class="product__original-price">{originalPrice}</span>
+        <span class="product__discount-percentage">{discountPercantage}</span>
+      </div>
+    </div>
+    <div class="product__info-actions">
+      <select class="product__size-select" name="size" id="size">
+        <option class="product__info-hidden">Select size</option>
+        {sizes.map((size) => <option value={size}>{size}</option>)}
+      </select>
+      <Button class="product__info-button">Add to cart</Button>
     </div>
   </div>
 </div>
 
 <style lang="scss">
   @import "../styles/_variables.scss";
+
+  .product {
+    &__large-image {
+      width: 100%;
+    }
+  
+    &__title {
+      font-family: "Rokkitt Variable", serif;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0;
+      color: #333333;
+      text-decoration: underline;
+      text-decoration-color: lightgray;
+    }
+    &__preview-images-parent {
+      display: flex;
+      overflow-x: scroll;
+      gap: 10px;
+    }
+    &__images {
+      margin-bottom: 20px ;
+    }
+    &__preview-image {
+      width: 30%;
+      margin-top: 10px;
+    }
+
+    &__info-parent {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+      font-size: 17px;
+      gap: 20px;
+    }
+
+    &__info-price-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    &__info-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__size-select {
+      width: 100%;
+      border: 1px solid lightgray;
+      border-radius: 4px;
+      font-family: "Rokkitt Variable", serif;
+      font-weight: 300;
+      font-size: 19px;
+      color: #333333;
+      padding: 5px;
+    }
+    &__info-hidden {
+      display: none;
+    }
+    &__info-correction-parent {
+      font-family: "Rokkitt Variable", serif;
+      font-weight: 300;
+    }
+    &__price {
+      color: #ff0c0c;
+      margin: 0;
+      font-family: "Rokkitt Variable", serif;
+      font-weight: bold;
+
+    }
+ &__original-price{
+  text-decoration: line-through;
+  text-decoration-color: gray;
+ }
+    &__discount-percentage {
+      color: #ff0c0c;
+      font-family: "Rokkitt Variable", serif;
+      font-weight: bold;
+    }
+    &__info-button {
+      width: 100%;
+      height: 40px;
+      padding: 5px;
+      background-color: #a39e7a;
+      opacity: 10;
+      font-family: "Share Tech Mono", monospace;
+      font-size: 16px;
+      font-weight: 300px;
+      border: 1px solid #333333;
+      border-radius: 10px;
+    }
+  }
 </style>

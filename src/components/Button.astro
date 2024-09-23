@@ -1,5 +1,12 @@
-<button class="button">
-  <slot/>
+---
+interface Props {
+  class: string;
+}
+const { class: extraClass, ...rest } = Astro.props;
+---
+
+<button class={extraClass} {...rest}>
+  <slot />
 </button>
 
 <style lang="scss">

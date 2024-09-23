@@ -3,53 +3,66 @@ import BaseLayout from "../layout/BaseLayout.astro";
 import ProductItem from "../components/ProductItem.astro";
 
 // images
-import productImage1 from "../assets/images/Person1/sand1.png";
-import productImage2 from "../assets/images/Person1/sand2.png";
-import productImage3 from "../assets/images/Person1/sand3.webp";
-import productImage4 from "../assets/images/Person1/homepic1.png";
-import productImage5 from "../assets/images/Person1/sand5.webp";
+import sandShirtFront from "../assets/images/Person1/sand1.png";
+import sandShirtFrontV2 from "../assets/images/Person1/sand2.png";
+import sandShirtBack from "../assets/images/Person1/sand3.webp";
+import sandShirtFrontV3 from "../assets/images/Person1/homepic1.png";
+import sandShirtBackV2 from "../assets/images/Person1/sand5.webp";
+
 
 const productImages = [
   {
     id: 1,
-    imageUrl: productImage1.src,
+    imageUrl: sandShirtFront.src,
     isActive: true,
   },
   {
     id: 2,
-    imageUrl: productImage2.src,
+    imageUrl: sandShirtFrontV2.src,
     isActive: false,
   },
   {
     id: 3,
-    imageUrl: productImage3.src,
+    imageUrl: sandShirtBack.src,
     isActive: false,
   },
   {
     id: 4,
-    imageUrl: productImage4.src,
+    imageUrl: sandShirtFrontV3.src,
     isActive: false,
   },
   {
     id: 5,
-    imageUrl: productImage5.src,
+    imageUrl: sandShirtBackV2.src,
     isActive: false,
   },
 ];
 ---
+<!-- lägg alla items i en div och ge den diven margin top ev bot 
 
-<BaseLayout activeid={"/products"}>
+div
+<ProductItem/>
+/div
+-->
+<BaseLayout activeHref={"/products"}>
+<div slot="main" class="layout">
   <ProductItem
-    slot="main"
-    images={productImages}
-    title={`"Baka" Sand Hoodie`}
-    price="2 503,00"
-    sizes={["XS", "S", "M", "L", "XL"]}
-    originalPrice="1756.00 kr"
-    discountPercantage="Ursprungligen: 2 195,00 kr -20%"
-  />
+  images={productImages}
+  title={`Baka Sand Hoodie`}
+  price="1 756.00 kr"
+  sizes={["XS", "S", "M", "L", "XL"]}
+  originalPrice="2 195,00 kr "
+  discountPercantage=" -20%"
+/>
+</div>
+ 
 </BaseLayout>
 
 <style lang="scss">
   @import "../styles/_variables.scss";
+
+  .layout{
+    padding-bottom: 50px;
+
+  }
 </style>
