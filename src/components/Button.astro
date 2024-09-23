@@ -1,17 +1,17 @@
 ---
 interface Props {
-  class: string;
+  class?: string;
 }
 const { class: extraClass, ...rest } = Astro.props;
 ---
 
-<button class={extraClass} {...rest}>
+<button class:list={["button", extraClass]} {...rest}>
   <slot />
 </button>
 
 <style lang="scss">
   .button {
-    background-color: #8b8d84;
+    background-color: #a39e7a;
     color: rgb(0, 0, 0);
     opacity: 10;
     margin-top: 1px;
