@@ -10,6 +10,20 @@ import sandShirtFrontV3 from "../assets/images/Person1/homepic1.png";
 import sandShirtBackV2 from "../assets/images/Person1/sand5.webp";
 
 
+/* person 2 */
+import greenShirtFront from "../assets/images/Person2/green1.png";
+import greenShirtFrontV2 from "../assets/images/Person2/green2.webp";
+import greenShirtBack from "../assets/images/Person2/green3.webp";
+import greenShirtFrontV3 from "../assets/images/Person2/green4.png";
+import greenShirtBackV2 from "../assets/images/Person2/green5.png";
+
+/* person 3 */
+import violShirtFront from "../assets/images/Person3/viol1.png";
+import violShirtFrontV2 from "../assets/images/Person3/viol2.webp";
+import violShirtBack from "../assets/images/Person3/viol3.png";
+import violShirtFrontV3 from "../assets/images/Person3/viol4.png";
+import violShirtBackV2 from "../assets/images/Person3/viol5.png";
+
 const productImages = [
   {
     id: 1,
@@ -37,6 +51,63 @@ const productImages = [
     isActive: false,
   },
 ];
+
+const productImagesTwo = [
+{
+    id: 6,
+    imageUrl: greenShirtFront.src,
+    isActive: true,
+  },
+  {
+    id: 7,
+    imageUrl: greenShirtFrontV2.src,
+    isActive: false,
+  },
+  {
+    id: 8,
+    imageUrl: greenShirtBack.src,
+    isActive: false,
+  },
+  {
+    id: 9,
+    imageUrl: greenShirtFrontV3.src,
+    isActive: false,
+  },
+  {
+    id: 10,
+    imageUrl: greenShirtBackV2.src,
+    isActive: false,
+  },
+]
+
+const productImagesThree = [
+{
+    id: 11,
+    imageUrl: violShirtFront.src,
+    isActive: true,
+  },
+  {
+    id: 12,
+    imageUrl: violShirtFrontV2.src,
+    isActive: false,
+  },
+  {
+    id: 13,
+    imageUrl: violShirtBack.src,
+    isActive: false,
+  },
+  {
+    id: 14,
+    imageUrl: violShirtFrontV3.src,
+    isActive: false,
+  },
+  {
+    id: 15,
+    imageUrl: violShirtBackV2.src,
+    isActive: false,
+  },
+]
+
 ---
 
 <BaseLayout activeHref={"/products"}>
@@ -49,7 +120,22 @@ const productImages = [
   originalPrice="2 195,00 kr "
   discountPercantage=" -20%"
 />
-
+<ProductItem
+images={productImagesTwo}
+title={`Baka Green Hoodie`}
+price="1 756.00 kr"
+sizes={["XS", "S", "M", "L", "XL"]}
+originalPrice="2 195,00 kr "
+discountPercantage=" -20%"
+/>
+<ProductItem
+images={productImagesThree}
+title={`Baka Viol Hoodie`}
+price="1 756.00 kr"
+sizes={["XS", "S", "M", "L", "XL"]}
+originalPrice="2 195,00 kr "
+discountPercantage=" -20%"
+/>
 </div>
  
 </BaseLayout>
@@ -57,8 +143,5 @@ const productImages = [
 <style lang="scss">
   @import "../styles/_variables.scss";
 
-  .layout{
-    padding-bottom: 50px;
 
-  }
 </style>
