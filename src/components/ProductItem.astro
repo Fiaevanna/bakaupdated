@@ -10,17 +10,25 @@ interface Image {
 
 interface Props {
   images: Image[];
+  mainImage: string;
   title: string;
+  key: number;
   price: string;
   sizes: string[];
   originalPrice: string;
   discountPercantage: string;
 }
 
-const { images, title, sizes, price, originalPrice, discountPercantage } =
-  Astro.props;
+const {
+  images,
+  mainImage,
+  title,
+  sizes,
+  price,
+  originalPrice,
+  discountPercantage,
+} = Astro.props;
 
-const largeImage = images.find((image) => image.isActive === true);
 const previewImages = images.filter((image) => image.isActive === false);
 ---
 
@@ -28,9 +36,10 @@ const previewImages = images.filter((image) => image.isActive === false);
   <div class="product__images">
     <div class="product__large-image-parent">
       <img
-        src={largeImage?.imageUrl}
+        src={mainImage}
         class="product__large-image"
-        alt="sandHoodie product"
+        class="product__large-image"
+        alt={`${title} product`}
       />
     </div>
 
@@ -74,7 +83,7 @@ const previewImages = images.filter((image) => image.isActive === false);
     &__large-image {
       width: 100%;
     }
-  
+
     &__title {
       font-family: "Rokkitt Variable", serif;
       font-weight: bold;
@@ -90,7 +99,7 @@ const previewImages = images.filter((image) => image.isActive === false);
       gap: 10px;
     }
     &__images {
-      margin-bottom: 20px ;
+      margin-bottom: 20px;
     }
     &__preview-image {
       width: 30%;
@@ -137,12 +146,11 @@ const previewImages = images.filter((image) => image.isActive === false);
       margin: 0;
       font-family: "Rokkitt Variable", serif;
       font-weight: bold;
-
     }
- &__original-price{
-  text-decoration: line-through;
-  text-decoration-color: gray;
- }
+    &__original-price {
+      text-decoration: line-through;
+      text-decoration-color: gray;
+    }
     &__discount-percentage {
       color: #ff0c0c;
       font-family: "Rokkitt Variable", serif;
@@ -163,9 +171,5 @@ const previewImages = images.filter((image) => image.isActive === false);
     }
   }
 
-
-   // Responsiv anpassning
-
-
-
+  // Responsiv anpassning
 </style>
