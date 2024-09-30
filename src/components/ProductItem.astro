@@ -191,9 +191,9 @@ const previewImages = images.filter((image) => image.isActive === false);
 
   @media (min-width: $mediumlarge-breakpoint) {
     .product {
-      width: 322px;
       box-sizing: border-box;
-
+      padding: unset;
+      flex-basis: calc(50% - 10px);
       &__info-parent {
         padding: unset;
       }
