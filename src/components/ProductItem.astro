@@ -199,4 +199,17 @@ const previewImages = images.filter((image) => image.isActive === false);
       }
     }
   }
+
+  @media (min-width: $xlarge-breakpoint) {
+    .product {
+      box-sizing: border-box;
+      padding: unset;
+      flex-basis: calc(100% / 3 - 20px / 3);
+      &__info-parent {
+        padding: unset;
+      }
+    }
+  }
 </style>
+
+<!-- $xlarge-breakpoint -->

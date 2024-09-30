@@ -1,137 +1,9 @@
 ---
 import BaseLayout from "../layout/BaseLayout.astro";
 import ProductItem from "../components/ProductItem.astro";
+import { getProducts } from "../services/products";
 
-// person 1
-import sandShirtFront from "../assets/images/Person1/sand1.png";
-import sandShirtFrontV2 from "../assets/images/Person1/sand2.png";
-import sandShirtBack from "../assets/images/Person1/sand3.webp";
-import sandShirtFrontV3 from "../assets/images/Person1/homepic1.png";
-import sandShirtBackV2 from "../assets/images/Person1/sand5.webp";
-
-/* person 2 */
-import greenShirtFront from "../assets/images/Person2/green1.png";
-import greenShirtFrontV2 from "../assets/images/Person2/green2.webp";
-import greenShirtBack from "../assets/images/Person2/green3.webp";
-import greenShirtFrontV3 from "../assets/images/Person2/green4.png";
-import greenShirtBackV2 from "../assets/images/Person2/green5.png";
-
-/* person 3 */
-import violShirtFront from "../assets/images/Person3/viol1.png";
-import violShirtFrontV2 from "../assets/images/Person3/viol2.webp";
-import violShirtBack from "../assets/images/Person3/viol3.png";
-import violShirtFrontV3 from "../assets/images/Person3/viol4.png";
-import violShirtBackV2 from "../assets/images/Person3/viol5.png";
-
-const products = [
-  {
-    id: 1,
-    title: `Baka Sand Hoodie`,
-    price: "1 756.00 kr",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    originalPrice: "2 195.00 kr",
-    discountPercantage: " -20%",
-    preview: [
-      {
-        id: 2,
-        imageUrl: sandShirtFront.src,
-        isActive: true,
-      },
-      {
-        id: 3,
-        imageUrl: sandShirtFrontV2.src,
-        isActive: false,
-      },
-      {
-        id: 4,
-        imageUrl: sandShirtBack.src,
-        isActive: false,
-      },
-      {
-        id: 5,
-        imageUrl: sandShirtFrontV3.src,
-        isActive: false,
-      },
-      {
-        id: 6,
-        imageUrl: sandShirtBackV2.src,
-        isActive: false,
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: `Baka Green Hoodie`,
-    price: "1 756.00 kr",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    originalPrice: "2 195.00 kr",
-    discountPercantage: " -20%",
-
-    preview: [
-      {
-        id: 7,
-        imageUrl: greenShirtFront.src,
-        isActive: true,
-      },
-      {
-        id: 8,
-        imageUrl: greenShirtFrontV2.src,
-        isActive: false,
-      },
-      {
-        id: 9,
-        imageUrl: greenShirtBack.src,
-        isActive: false,
-      },
-      {
-        id: 10,
-        imageUrl: greenShirtFrontV3.src,
-        isActive: false,
-      },
-      {
-        id: 11,
-        imageUrl: greenShirtBackV2.src,
-        isActive: false,
-      },
-    ],
-  },
-  {
-    id: 11,
-    title: `Baka Viol Hoodie`,
-    price: "1 756.00 kr",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    originalPrice: "2 195.00 kr",
-    discountPercantage: " -20%",
-
-    preview: [
-      {
-        id: 12,
-        imageUrl: violShirtFront.src,
-        isActive: true,
-      },
-      {
-        id: 13,
-        imageUrl: violShirtBack.src,
-        isActive: false,
-      },
-      {
-        id: 14,
-        imageUrl: violShirtFrontV2.src,
-        isActive: false,
-      },
-      {
-        id: 15,
-        imageUrl: violShirtFrontV3.src,
-        isActive: false,
-      },
-      {
-        id: 16,
-        imageUrl: violShirtBackV2.src,
-        isActive: false,
-      },
-    ],
-  },
-];
+const products = getProducts();
 ---
 
 <BaseLayout activeHref={"/products"}>
@@ -166,7 +38,7 @@ const products = [
   @media (min-width: $mediumlarge-breakpoint) {
     .layout {
       display: flex;
-      justify-content: space-between;
+      gap: 10px;
       flex-wrap: wrap;
       padding: 10px;
       box-sizing: border-box;
