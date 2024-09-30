@@ -154,4 +154,19 @@ const products = [
 
 <style lang="scss">
   @import "../styles/_variables.scss";
+
+  @media (min-width: $medium-breakpoint) {
+    .layout {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (min-width: $mediumlarge-breakpoint) {
+    .layout {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 </style>

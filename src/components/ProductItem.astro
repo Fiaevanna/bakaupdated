@@ -75,7 +75,7 @@ const previewImages = images.filter((image) => image.isActive === false);
     &__large-image {
       width: 100%;
     }
-  
+
     &__title {
       font-family: "Rokkitt Variable", serif;
       font-weight: bold;
@@ -91,7 +91,7 @@ const previewImages = images.filter((image) => image.isActive === false);
       gap: 10px;
     }
     &__images {
-      margin-bottom: 20px ;
+      margin-bottom: 20px;
     }
     &__preview-image {
       width: 30%;
@@ -138,12 +138,11 @@ const previewImages = images.filter((image) => image.isActive === false);
       margin: 0;
       font-family: "Rokkitt Variable", serif;
       font-weight: bold;
-
     }
- &__original-price{
-  text-decoration: line-through;
-  text-decoration-color: gray;
- }
+    &__original-price {
+      text-decoration: line-through;
+      text-decoration-color: gray;
+    }
     &__discount-percentage {
       color: #ff0c0c;
       font-family: "Rokkitt Variable", serif;
@@ -164,9 +163,40 @@ const previewImages = images.filter((image) => image.isActive === false);
     }
   }
 
+  // Responsiv anpassning
 
-   // Responsiv anpassning
+  @media (min-width: $medium-breakpoint) {
+    .product {
+      width: 50%;
+      padding: 10px;
+      box-sizing: border-box;
 
+      &__preview-images-parent {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        overflow-x: unset;
+      }
 
+      &__preview-image {
+        width: 30%;
+        margin-top: 10px;
+      }
 
+      &__info-parent {
+        padding: unset;
+      }
+    }
+  }
+
+  @media (min-width: $mediumlarge-breakpoint) {
+    .product {
+      width: 322px;
+      box-sizing: border-box;
+
+      &__info-parent {
+        padding: unset;
+      }
+    }
+  }
 </style>
