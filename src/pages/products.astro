@@ -10,14 +10,13 @@ const products = getProducts();
   <div slot="main" class="layout">
     {
       products.map((product) => (
-        <ProductItem
-          key={product.id}
+        <ProductItem 
           images={product.preview}
           title={product.title}
           price={product.price}
           sizes={product.sizes}
           originalPrice={product.originalPrice}
-          discountPercantage={product.discountPercantage}
+          discountPercantage={product.discountPercentage}
         />
       ))
     }

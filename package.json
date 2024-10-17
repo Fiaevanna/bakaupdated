@@ -14,9 +14,14 @@
     "@fontsource-variable/rokkitt": "^5.1.0",
     "@fontsource/rubik-wet-paint": "^5.0.14",
     "astro": "^4.15.2",
+    "better-sqlite3": "^11.3.0",
+    "drizzle-orm": "^0.33.0",
+    "lucide-astro": "^0.452.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "drizzle-kit": "^0.24.2",
     "prettier-plugin-astro": "^0.14.1",
     "sass-embedded": "^1.78.0"
   }

@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layout/BaseLayout.astro";
+import { Github } from 'lucide-astro'
+
+---
+
+<BaseLayout activeHref={"/about"}>
+  <div slot="main" class="about">
+    <p class="about__header">Hello and welcome to Clothes for "BAKA"</p>
+
+    <p class="about__bread-text">
+      This is my webshop, where the focus is on both appearance and
+      functionality. The name "BAKA" is inspired by the Japanese word meaning
+      "fool."
+    </p>
+
+    <p class="about__bread-text">
+      About two years ago, I started this project with the goal of learning the
+      basics of HTML and CSS through a school assignment. Over the course of a
+      month, I had the freedom to create something entirely my own, and the
+      result was a design I was very satisfied with. Now, two years later, I
+      felt it was time to improve and further develop the project to achieve an
+      even better final result.
+    </p>
+
+    <p class="about__bread-text">
+      I decided to modernize and restructure the entire website by rewriting the
+      code in Astro. The goal was to refresh the design, enhance performance,
+      and make the code flow more readable. Although the webshop is relatively
+      simple, I wanted to place great emphasis on details and craftsmanship.
+      During the update, I chose to implement a database to manage all product
+      content more efficiently. Given the project's size, I found that SQLite
+      was the perfect choice for high performance with a smaller data set. To
+      handle database communication, I opted for Drizzle.
+    </p>
+
+    <p class="about__header" >SCSS and Styling</p>
+    <p class="about__bread-text">
+      When it came to styling, I upgraded my CSS to SCSS to structure my
+      elements more efficiently. However, during the process, I realized that
+      the code became difficult to read and cluttered. After some research, I
+      decided to use BEM (Block, Element, Modifier) as a method to create
+      reusable components and maintain a cleaner code structure. This approach
+      resulted in a clearer and more streamlined design.
+    </p>
+
+    <p class="about__bread-text">
+      I hope you enjoy the website, and you are more than welcome to check out
+      my code on <a href="">GitHub <Github /></a>
+    </p>
+  </div>
+</BaseLayout>
+
+
+<style lang="scss">
+@import "../styles/_variables.scss";
+
+
+.about{
+  padding: 20px;
+
+   &__header{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Rokkitt Variable", serif;
+    
+
+   }
+   &__bread-text{
+    font-family: "Rokkitt Variable", serif;
+   }
+}
+
+</style>

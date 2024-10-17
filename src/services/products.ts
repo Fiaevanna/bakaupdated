@@ -54,6 +54,11 @@ import blue3 from "../assets/images/person5/blue3.png";
 import blue4 from "../assets/images/person5/blue4.png";
 import blue5 from "../assets/images/person5/blue5.webp";
 
+
+/* här ska in i product sen 
+const result = await db.select().from(users); */
+
+
 export const getProducts = () => {
     return [
         {
@@ -62,7 +67,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
           preview: [
             {
               id: 2,
@@ -97,7 +102,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
           preview: [
             {
               id: 2,
@@ -132,7 +137,7 @@ export const getProducts = () => {
           price: "2 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
       
           preview: [
             {
@@ -168,7 +173,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
       
           preview: [
             {
@@ -204,7 +209,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
       
           preview: [
             {
@@ -240,7 +245,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
       
           preview: [
             {
@@ -276,7 +281,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
       
           preview: [
             {
@@ -312,7 +317,7 @@ export const getProducts = () => {
           price: "1 756.00 kr",
           sizes: ["XS", "S", "M", "L", "XL"],
           originalPrice: "2 195.00 kr",
-          discountPercantage: " -20%",
+          discountPercentage: " -20%",
       
           preview: [
             {
