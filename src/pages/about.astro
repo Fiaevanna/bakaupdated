@@ -1,22 +1,31 @@
 ---
 import BaseLayout from "../layout/BaseLayout.astro";
+import "@fontsource-variable/heebo";
+import "@fontsource-variable/rokkitt";
+import "@fontsource-variable/oswald";
 ---
 
 <BaseLayout activeHref={"/about"}>
   <div slot="main" class="about">
-    <p class="about__title">Welcome to Clothes for "BAKA"</p>
+    <h1 class="about__title">Welcome</h1>
     <p class="about__bread-text">
       This is my webshop, where the focus is on both appearance and
-      functionality. <br />
+      functionality.
     </p>
-    <p class="about__unic-text">
-      The name "BAKA" is inspired by the Japanese word meaning "fool."
-    </p>
+    <div class="about__unique-parent">
+      <p class="about__unique-text">
+        The name "BAKA" is inspired by the Japanese word meaning "fool."
+      </p>
+    </div>
+
     <p class="about__bread-text">
       About two years ago, I started this project with the goal of learning the
-      basics of HTML and CSS through a school assignment. Over the course of a
-      month, I had the freedom to create something entirely on my own, and the
-      result was a design I was very satisfied with.
+      basics of HTML and CSS through a school assignment.
+    </p>
+
+    <p class="about__bread-text">
+      Over the course of a month, I had the freedom to create something entirely
+      on my own, and the result was a design I was very satisfied with.
     </p>
 
     <p class="about__header">Refactoring</p>
@@ -40,60 +49,120 @@ import BaseLayout from "../layout/BaseLayout.astro";
       When it came to styling, I upgraded my CSS to SCSS to structure my
       elements more efficiently. <br />
       <br />However, during the process, I realized that the code became
-      difficult to read and cluttered. After some research, I decided to use BEM
+      difficult to read and cluttered.  <br /> <br> After some research, I decided to use BEM
       (Block, Element, Modifier) as a method to create reusable components and
       maintain a cleaner code structure. <br />
       <br /> This approach resulted in a clearer and more streamlined design.
     </p>
-
+    <p class="about__header">Link to code</p>
     <p class="about__bread-text">
-      I hope you enjoy the website, and you are more than welcome to check out
-      my code on <a href="">GitHub </a>
+     Check out my <a class="about__link-to" href="https://github.com/Fiaevanna/bakaupdated">github </a>
     </p>
   </div>
 </BaseLayout>
-
+<!-- $fs-xl -->
 <style lang="scss">
   @import "../styles/_variables.scss";
 
   .about {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-
-    &__title {
-      display: flex;
-      justify-content: flex-start;
-      margin-bottom: 10px;
-      font-size: 25px;
-
-      font-weight: bold;
-      font-family: "Rokkitt Variable", serif;
-    }
-    &__bread-text {
-      font-family: "Lora Variable", serif;
-      font-size: 18px;
-      text-wrap: balance;
-      margin-top: 6px;
-    }
-    &__unic-text {
-      font-family: "Lora Variable", serif;
-      font-size: 18px;
-      width: 260px;
-      font-weight: bold;
-      color: #8e8e1b;
-    }
+    padding: 10px;
+    line-height: 1.3;
 
     &__header {
-      font-size: 20px;
+      font-size: $fs-500;
+      text-transform: uppercase;
+      color: #5e4c38;
       font-weight: bold;
-      font-family: "Rokkitt Variable", serif;
-      text-wrap: balance;
-      margin: 0px;
-      margin-top: 40px;
+      margin-top: 45px;
     }
-    .header__content {
-      height: 60px;
+    &__title {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      font-size: $fs-xl;
+      text-transform: uppercase;
+      color: #5e4c38;
+      margin-bottom: 20px;
+    }
+    &__unique-parent {
+      display: flex;
+      justify-content: center;
+    }
+    &__unique-text {
+      width: 300px;
+      font-size: 18px;
+      text-wrap: balance;
+      font-weight: bold;
+      color: #554534;
+      background-color: rgb(241, 231, 215);
+      padding: 15px;
+      margin-top: 0px;
+    }
+    &__bread-text {
+      font-family: "Rokkitt Variable", serif;
+      font-size: $fs-600;
+      text-wrap: balance;
+    }
+
+    &__link-to{
+        text-decoration: underline;
+        color: rgb(45, 45, 153);
     }
   }
 </style>
+
+<!-- 
+
+  .about {
+    padding: 15px;
+
+    &__title {
+      font-size: $fs-xl;
+      font-weight: bold;
+      line-height: 1.2;
+      text-transform: uppercase;
+      font-family: "Oswald", sans-serif;
+    }
+
+    .about {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+
+
+      &__header {
+        font-size: 20px;
+        font-weight: bold;
+      
+        text-wrap: balance;
+        margin: 0px;
+        margin-top: 40px;
+      }
+
+      &__header {
+        font-family: "Oswald Variable", sans-serif;
+        font-weight: bold;
+      }
+
+      &__bread-text,
+      &__unique-text {
+        font-family: "Heebo Variable", sans-serif;
+        font-size: $fs-500;
+        margin-top: 6px;
+        text-wrap: balance;
+      }
+
+      &__bread-text {
+        font-size: $fs-500;
+        text-wrap: balance;
+        margin-top: 6px;
+      }
+      &__unique-text {
+        width: 260px;
+        font-weight: bold;
+        color: #8e8e1b;
+      }
+    }
+  }
+
+-->
