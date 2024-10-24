@@ -2,6 +2,11 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 const { activeHref } = Astro.props;
+interface Props {
+  class?: string;
+  activeHref?: string;
+}
+const { class: extraClass, ...rest } = Astro.props;
 ---
 
 <html lang="en">
@@ -16,7 +21,7 @@ const { activeHref } = Astro.props;
     <Header activeHref={activeHref}>
       <slot name="header-cta" />
     </Header>
-    <main>
+    <main class:list={["button", extraClass]} {...rest}>
       <slot name="main" />
     </main>
     <Footer activeHref={activeHref} />
@@ -30,5 +35,8 @@ const { activeHref } = Astro.props;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+  main{
+    padding: 0 10px;
   }
 </style>

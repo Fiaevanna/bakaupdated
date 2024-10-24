@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layout/BaseLayout.astro";
+import "@fontsource-variable/rokkitt";
+import image from "../assets/images/hiroshi/nyhiroshi.png";
+---
+
+<BaseLayout activeHref={"/contact"}>
+  <div slot="main" class="success">
+    <div class="success__text-wrapper">
+      <h1 class="success__title">Message sent!</h1>
+      <p class="success__bread-text">
+      Our team will get back to you within 3-5 business days. 
+      </p>
+    </div>
+    <div class="success__cat-wrapper">
+      <img class="success__cat" src={image.src} alt="image of logo cat" />
+      <p class="success__cat-text">Success!</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  @import "../styles/_variables.scss";
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    &__title {
+      color: #554534;
+      text-transform: uppercase;
+      font-size: $fs-xl;
+      margin-bottom: 20px;
+    }
+    &__bread-text {
+      margin-top: 0px;
+
+      font-family: "Rokkitt Variable", serif;
+      font-size: $fs-600;
+    }
+
+    &__cat-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #1f9c5a;
+      font-size: $fs-600;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    &__cat {
+      width: 120px;
+      height: 100px;
+    }
+  }
+</style>
