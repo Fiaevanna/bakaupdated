@@ -13,30 +13,25 @@ interface Props {
   sizes: string[];
   originalPrice: string;
   discountPercantage: string;
+  id: string;
 }
 
-const { images, title, sizes, price, originalPrice, discountPercantage } =
+const { images, title, sizes, price, originalPrice, discountPercantage, id } =
   Astro.props;
 
 const largeImage = images.find((image) => image.isActive === true);
-const previewImages = images.filter((image) => image.isActive === false);
 ---
 
-<!-- SCRIPT -->
 <script>
-  const largeImage = document.getElementById("largeImage");
   const previewImages = document.querySelectorAll(".product__preview-image");
 
   previewImages.forEach((preview) => {
     preview.addEventListener("click", () => {
+      const productId = preview.dataset.productId;
+      const largeImage = document.getElementById(`largeImage-${productId}`)!;
       const clickedSrc = preview.getAttribute("src");
 
-      if (largeImage) {
-        largeImage.src = clickedSrc;
-      }
-      previewImages.forEach((img) => {
-        img.classList.remove("active");
-      });
+      largeImage.src = clickedSrc;
     });
   });
 </script>
@@ -48,7 +43,7 @@ const previewImages = images.filter((image) => image.isActive === false);
         src={largeImage?.imageUrl}
         class="product__large-image"
         alt={title}
-        id="largeImage"
+        id={`largeImage-${id}`}
       />
     </div>
 
@@ -57,9 +52,9 @@ const previewImages = images.filter((image) => image.isActive === false);
         images.map((image) => (
           <img
             src={image.imageUrl}
-            class={`product__preview-image ${image.isActive ? "active" : ""}`}
+            class={`product__preview-image`}
             alt={title}
-            data-id={image.imageUrl}
+            data-product-id={id}
           />
         ))
       }

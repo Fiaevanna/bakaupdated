@@ -11,6 +11,7 @@ const products = getProducts();
     {
       products.map((product) => (
         <ProductItem
+          id={product.id}
           images={product.preview}
           title={product.title}
           price={product.price}

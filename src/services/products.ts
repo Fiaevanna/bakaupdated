@@ -54,298 +54,254 @@ import blue3 from "../assets/images/person5/blue3.png";
 import blue4 from "../assets/images/person5/blue4.png";
 import blue5 from "../assets/images/person5/blue5.webp";
 
-
 /* här ska in i product sen 
 const result = await db.select().from(users); */
 
-
 export const getProducts = () => {
-    return [
+  const products = [
+    {
+      title: `Baka: Sand Hoodie`,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+      preview: [
         {
-         
-          title: `Baka: Sand Hoodie`,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-          preview: [
-            {
-              
-              imageUrl: sand1.src,
-              isActive: false,
-            },
-            {
-              imageUrl: san2.src,
-              isActive: false,
-            },
-            {
-             
-              imageUrl: sand3.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: sand4.src,
-              isActive: true,
-            },
-            {
-            
-              imageUrl: sand5.src,
-              isActive: false,
-            },
-          ],
+          imageUrl: sand1.src,
+          isActive: false,
         },
         {
-         
-          title: `Baka: Beige Hoodie`,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-          preview: [
-            {
-              
-              imageUrl: beige1.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: beige2.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: beige3.src,
-              isActive: false,
-            },
-            {
-             
-              imageUrl: beige4.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: beige5.src,
-              isActive: true,
-            },
-          ],
+          imageUrl: san2.src,
+          isActive: false,
         },
         {
-         
-          title: `Baka: Gray Hoodie`,
-          price: "2 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-      
-          preview: [
-            {
-              
-              imageUrl: grayHoodie1.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: grayHoodie2.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: grayHoodie3.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: grayHoodie4.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: grayHoodie5.src,
-              isActive: true,
-            },
-          ],
+          imageUrl: sand3.src,
+          isActive: false,
         },
         {
-          
-          title: `Baka: Green Hoodie`,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-      
-          preview: [
-            {
-              
-              imageUrl: green1.src,
-              isActive: true,
-            },
-            {
-              
-              imageUrl: green2.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: green3.src,
-              isActive: false,
-            },
-            {
-             
-              imageUrl: green4.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: green5.src,
-              isActive: false,
-            },
-          ],
+          imageUrl: sand4.src,
+          isActive: true,
         },
         {
-          
-          title: `Baka: Wood-Green Cardigan`,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-      
-          preview: [
-            {
-              
-              imageUrl: woodgreen1.src,
-              isActive: true,
-            },
-            {
-              
-              imageUrl: woodgreen2.src,
-              isActive: false,
-            },
-            {
-             
-              imageUrl: woodgreen3.src,
-              isActive: false,
-            },
-            {
-             
-              imageUrl: woodgreen4.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: woodgreen5.src,
-              isActive: false,
-            },
-          ],
+          imageUrl: sand5.src,
+          isActive: false,
+        },
+      ],
+    },
+    {
+      title: `Baka: Beige Hoodie`,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+      preview: [
+        {
+          imageUrl: beige1.src,
+          isActive: false,
         },
         {
-         
-          title: `Baka Green Joggers `,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-      
-          preview: [
-            {
-              
-              imageUrl: joggers1.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: joggers2.src,
-              isActive: false,
-            },
-            {
-             
-              imageUrl: joggers3.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: joggers4.src,
-              isActive: false,
-            },
-            {
-            
-              imageUrl: joggers5.src,
-              isActive: true,
-            },
-          ],
+          imageUrl: beige2.src,
+          isActive: false,
         },
         {
-          
-          title: `Baka: Viol Hoodie`,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-      
-          preview: [
-            {
-             
-              imageUrl: viol1.src,
-              isActive: true,
-            },
-            {
-              
-              imageUrl: viol3.src,
-              isActive: false,
-            },
-            {
-            
-              imageUrl: viol2.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: viol4.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: viol5.src,
-              isActive: false,
-            },
-          ],
+          imageUrl: beige3.src,
+          isActive: false,
         },
         {
-       
-          title: `Baka: Blue T-Shirt`,
-          price: "1 756.00 kr",
-          sizes: ["XS", "S", "M", "L", "XL"],
-          originalPrice: "2 195.00 kr",
-          discountPercentage: " -20%",
-      
-          preview: [
-            {
-            
-              imageUrl: blue1.src,
-              isActive: false,
-            },
-            {
-            
-              imageUrl: blue3.src,
-              isActive: false,
-            },
-            {
-            
-              imageUrl: blue2.src,
-              isActive: true,
-            },
-            {
-              
-              imageUrl: blue4.src,
-              isActive: false,
-            },
-            {
-              
-              imageUrl: blue5.src,
-              isActive: false,
-            },
-          ],
+          imageUrl: beige4.src,
+          isActive: false,
         },
-       
-      ];
-}
+        {
+          imageUrl: beige5.src,
+          isActive: true,
+        },
+      ],
+    },
+    {
+      title: `Baka: Gray Hoodie`,
+      price: "2 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+
+      preview: [
+        {
+          imageUrl: grayHoodie1.src,
+          isActive: false,
+        },
+        {
+          imageUrl: grayHoodie2.src,
+          isActive: false,
+        },
+        {
+          imageUrl: grayHoodie3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: grayHoodie4.src,
+          isActive: false,
+        },
+        {
+          imageUrl: grayHoodie5.src,
+          isActive: true,
+        },
+      ],
+    },
+    {
+      title: `Baka: Green Hoodie`,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+
+      preview: [
+        {
+          imageUrl: green1.src,
+          isActive: true,
+        },
+        {
+          imageUrl: green2.src,
+          isActive: false,
+        },
+        {
+          imageUrl: green3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: green4.src,
+          isActive: false,
+        },
+        {
+          imageUrl: green5.src,
+          isActive: false,
+        },
+      ],
+    },
+    {
+      title: `Baka: Wood-Green Cardigan`,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+
+      preview: [
+        {
+          imageUrl: woodgreen1.src,
+          isActive: true,
+        },
+        {
+          imageUrl: woodgreen2.src,
+          isActive: false,
+        },
+        {
+          imageUrl: woodgreen3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: woodgreen4.src,
+          isActive: false,
+        },
+        {
+          imageUrl: woodgreen5.src,
+          isActive: false,
+        },
+      ],
+    },
+    {
+      title: `Baka Green Joggers `,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+
+      preview: [
+        {
+          imageUrl: joggers1.src,
+          isActive: false,
+        },
+        {
+          imageUrl: joggers2.src,
+          isActive: false,
+        },
+        {
+          imageUrl: joggers3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: joggers4.src,
+          isActive: false,
+        },
+        {
+          imageUrl: joggers5.src,
+          isActive: true,
+        },
+      ],
+    },
+    {
+      title: `Baka: Viol Hoodie`,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+
+      preview: [
+        {
+          imageUrl: viol1.src,
+          isActive: true,
+        },
+        {
+          imageUrl: viol3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: viol2.src,
+          isActive: false,
+        },
+        {
+          imageUrl: viol4.src,
+          isActive: false,
+        },
+        {
+          imageUrl: viol5.src,
+          isActive: false,
+        },
+      ],
+    },
+    {
+      title: `Baka: Blue T-Shirt`,
+      price: "1 756.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+
+      preview: [
+        {
+          imageUrl: blue1.src,
+          isActive: false,
+        },
+        {
+          imageUrl: blue3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: blue2.src,
+          isActive: true,
+        },
+        {
+          imageUrl: blue4.src,
+          isActive: false,
+        },
+        {
+          imageUrl: blue5.src,
+          isActive: false,
+        },
+      ],
+    },
+  ];
+  return products.map((product, i) => {
+    return {
+      ...product,
+      id: String(i),
+    };
+  });
+};
