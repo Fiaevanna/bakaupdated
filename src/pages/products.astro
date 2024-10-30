@@ -10,7 +10,7 @@ const products = getProducts();
   <div slot="main" class="layout">
     {
       products.map((product) => (
-        <ProductItem 
+        <ProductItem
           images={product.preview}
           title={product.title}
           price={product.price}
@@ -24,7 +24,7 @@ const products = getProducts();
 </BaseLayout>
 
 <style lang="scss">
-   main{
+  main {
     padding: 0px;
   }
   @import "../styles/_variables.scss";

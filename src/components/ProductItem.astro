@@ -1,9 +1,7 @@
 ---
-// Supports weights 100-900
 import Button from "../components/Button.astro";
 import "@fontsource-variable/rokkitt";
 interface Image {
-  id: number;
   imageUrl: string;
   isActive: boolean;
 }
@@ -24,23 +22,44 @@ const largeImage = images.find((image) => image.isActive === true);
 const previewImages = images.filter((image) => image.isActive === false);
 ---
 
+<!-- SCRIPT -->
+<script>
+  const largeImage = document.getElementById("largeImage");
+  const previewImages = document.querySelectorAll(".product__preview-image");
+
+  previewImages.forEach((preview) => {
+    preview.addEventListener("click", () => {
+      const clickedSrc = preview.getAttribute("src");
+
+      if (largeImage) {
+        largeImage.src = clickedSrc;
+      }
+      previewImages.forEach((img) => {
+        img.classList.remove("active");
+      });
+    });
+  });
+</script>
+
 <div class="product">
   <div class="product__images">
     <div class="product__large-image-parent">
       <img
         src={largeImage?.imageUrl}
         class="product__large-image"
-        alt="sandHoodie product"
+        alt={title}
+        id="largeImage"
       />
     </div>
 
     <div class="product__preview-images-parent">
       {
-        previewImages.map((image) => (
+        images.map((image) => (
           <img
             src={image.imageUrl}
-            class="product__preview-image"
-            alt="sandHoodie product"
+            class={`product__preview-image ${image.isActive ? "active" : ""}`}
+            alt={title}
+            data-id={image.imageUrl}
           />
         ))
       }
@@ -210,5 +229,3 @@ const previewImages = images.filter((image) => image.isActive === false);
     }
   }
 </style>
-
-<!-- $xlarge-breakpoint -->
