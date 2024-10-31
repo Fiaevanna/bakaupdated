@@ -130,6 +130,11 @@ const largeImage = images.find((image) => image.isActive === true);
     &__preview-image {
       width: 30%;
       margin-top: 10px;
+
+      &:hover {
+        opacity: 80%;
+        cursor: pointer;
+      }
     }
 
     &__info-parent {
@@ -213,14 +218,12 @@ const largeImage = images.find((image) => image.isActive === true);
 
       &__preview-images-parent {
         display: flex;
-        justify-content: space-between;
-
-        flex-wrap: wrap;
+        gap: 10px;
         overflow-x: unset;
       }
 
       &__preview-image {
-        width: 30%;
+        width: 50px;
         margin-top: 10px;
       }
 
