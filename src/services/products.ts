@@ -54,6 +54,11 @@ import blue3 from "../assets/images/person5/blue3.png";
 import blue4 from "../assets/images/person5/blue4.png";
 import blue5 from "../assets/images/person5/blue5.webp";
 
+import red1 from "../assets/images/person10/red1.webp";
+import red2 from "../assets/images/person10/red2.png";
+import red3 from "../assets/images/person10/red3.webp";
+import red4 from "../assets/images/person10/red4.png";
+import red5 from "../assets/images/person10/red5.png";
 /* här ska in i product sen 
 const result = await db.select().from(users); */
 
@@ -63,8 +68,6 @@ export const getProducts = () => {
       title: `Baka: Sand Hoodie`,
       price: "1 756.00 kr",
       sizes: ["XS", "S", "M", "L", "XL"],
-      originalPrice: "2 195.00 kr",
-      discountPercentage: " -20%",
       preview: [
         {
           imageUrl: sand1.src,
@@ -293,6 +296,35 @@ export const getProducts = () => {
         },
         {
           imageUrl: blue5.src,
+          isActive: false,
+        },
+      ],
+    },
+    {
+      title: `Baka: Red Joggers`,
+      price: "1 256.00 kr",
+      sizes: ["XS", "S", "M", "L", "XL"],
+      originalPrice: "2 195.00 kr",
+      discountPercentage: " -20%",
+      preview: [
+        {
+          imageUrl: red1.src,
+          isActive: false,
+        },
+        {
+          imageUrl: red2.src,
+          isActive: false,
+        },
+        {
+          imageUrl: red3.src,
+          isActive: false,
+        },
+        {
+          imageUrl: red4.src,
+          isActive: true,
+        },
+        {
+          imageUrl: red5.src,
           isActive: false,
         },
       ],

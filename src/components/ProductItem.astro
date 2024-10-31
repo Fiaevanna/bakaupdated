@@ -11,8 +11,8 @@ interface Props {
   title: string;
   price: string;
   sizes: string[];
-  originalPrice: string;
-  discountPercantage: string;
+  originalPrice?: string;
+  discountPercantage?: string;
   id: string;
 }
 
@@ -64,11 +64,32 @@ const largeImage = images.find((image) => image.isActive === true);
   <div class="product__info-parent">
     <div class="product__info-price-wrapper">
       <h3 class="product__title">{title}</h3>
-      <h4 class="product__price">{price}</h4>
+
+      <h4
+        class:list={[
+          "product__price",
+          { "product__price-discount": discountPercantage },
+        ]}
+      >
+        {price}
+      </h4>
       <div class="product__info-correction-parent">
-        <span>Original Price: </span>
-        <span class="product__original-price">{originalPrice}</span>
-        <span class="product__discount-percentage">{discountPercantage}</span>
+        {
+          originalPrice && (
+            <>
+              <span>Original Price: </span>
+              <span class="product__original-price">{originalPrice}</span>
+            </>
+          )
+        }
+
+        {
+          discountPercantage && (
+            <span class="product__discount-percentage">
+              {discountPercantage}
+            </span>
+          )
+        }
       </div>
     </div>
     <div class="product__info-actions">
@@ -123,6 +144,7 @@ const largeImage = images.find((image) => image.isActive === true);
       display: flex;
       flex-direction: column;
       gap: 5px;
+      height: 70px;
     }
     &__info-actions {
       display: flex;
@@ -147,10 +169,15 @@ const largeImage = images.find((image) => image.isActive === true);
       font-weight: 300;
     }
     &__price {
-      color: #ff0c0c;
+      color: black;
       margin: 0;
       font-family: "Rokkitt Variable", serif;
       font-weight: bold;
+    
+    }
+    &__price-discount {
+      color: #ff0c0c;
+      
     }
     &__original-price {
       text-decoration: line-through;
@@ -187,6 +214,7 @@ const largeImage = images.find((image) => image.isActive === true);
       &__preview-images-parent {
         display: flex;
         justify-content: space-between;
+
         flex-wrap: wrap;
         overflow-x: unset;
       }
