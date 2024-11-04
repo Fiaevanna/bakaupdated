@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/node": "^8.3.4",
     "@fontsource-variable/heebo": "^5.1.0",
     "@fontsource-variable/lora": "^5.1.0",
     "@fontsource-variable/oswald": "^5.1.0",

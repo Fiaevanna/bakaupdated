@@ -23,13 +23,13 @@ const largeImage = images.find((image) => image.isActive === true);
 ---
 
 <script>
-  const previewImages = document.querySelectorAll(".product__preview-image");
+  const previewImages = document.querySelectorAll<HTMLImageElement>(".product__preview-image");
 
   previewImages.forEach((preview) => {
     const handleChangeImage = () => {
       const productId = preview.dataset.productId;
-      const largeImage = document.getElementById(`largeImage-${productId}`)!;
-      const clickedSrc = preview.getAttribute("src");
+      const largeImage = document.querySelector<HTMLImageElement>(`#largeImage-${productId}`)!;
+      const clickedSrc = preview.getAttribute("src")!;
       largeImage.src = clickedSrc;
     };
     preview.addEventListener("mouseover", handleChangeImage);

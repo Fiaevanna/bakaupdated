@@ -59,3 +59,13 @@ export const relationForProductSizes = relations(product_sizes, ({ one }) => ({
 
 export type SelectProducts = typeof products.$inferSelect;
 export type InsertProducts = typeof products.$inferInsert;
+
+export type SelectPreviewImages = typeof previewImages.$inferSelect;
+export type InsertPreviewImages = typeof previewImages.$inferInsert;
+
+export type SelectSizes = typeof sizes.$inferSelect;
+export type InsertSizes = typeof sizes.$inferInsert;
+
+
+export type SelectProductSizes = typeof product_sizes.$inferSelect;
+export type InsertProductSizes = typeof product_sizes.$inferInsert;
