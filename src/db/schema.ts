@@ -1,9 +1,9 @@
-import { relations, sql } from "drizzle-orm";
+import { relations } from "drizzle-orm";
 import { text, integer, sqliteTable } from "drizzle-orm/sqlite-core";
 
 /* setting up tables and there references */
 export const products = sqliteTable("products", {
-  id: text("id"),
+  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
   title: text("title"),
   price: text("price"),
   originalPrice: text("originalPrice"),
@@ -11,21 +11,21 @@ export const products = sqliteTable("products", {
 });
 
 export const previewImages = sqliteTable("previewImages", {
-  id: text("id"),
-  productId: text("productId").references(() => products.id),
+  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
+  productId: integer("productId").references(() => products.id),
   imageUrl: text("imageUrl"),
   isActive: integer("isActive", { mode: "boolean" }),
 });
 
 export const sizes = sqliteTable("sizes", {
-  id: text("id"),
+  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
   value: text("value"),
 });
 
 /* junction-table (koppling) */
 export const product_sizes = sqliteTable("product_sizes", {
-  productId: text("productId").references(() => products.id),
-  sizeId: text("sizeId").references(() => sizes.id),
+  productId: integer("productId").references(() => products.id),
+  sizeId: integer("sizeId").references(() => sizes.id),
 });
 
 /* setting up the relations between tables */
@@ -58,3 +58,4 @@ export const relationForProductSizes = relations(product_sizes, ({ one }) => ({
 }));
 
 export type SelectProducts = typeof products.$inferSelect;
+export type InsertProducts = typeof products.$inferInsert;
