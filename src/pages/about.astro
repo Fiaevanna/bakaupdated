@@ -18,7 +18,6 @@ import "@fontsource-variable/oswald";
       This is my webshop, where the focus is on both appearance and
       functionality.
     </p>
-    
 
     <p class="about__bread-text">
       About two years ago, I started this project with the goal of learning the
@@ -77,7 +76,7 @@ import "@fontsource-variable/oswald";
     &__header {
       font-size: $fs-500;
       text-transform: uppercase;
-      color: #5e4c38;
+      color: $header-color;
       font-weight: bold;
       margin-top: 45px;
     }
@@ -86,7 +85,7 @@ import "@fontsource-variable/oswald";
       flex-direction: column;
       font-size: $fs-xl;
       text-transform: uppercase;
-      color: #5e4c38;
+      color: $header-color;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -98,7 +97,7 @@ import "@fontsource-variable/oswald";
       font-size: 18px;
       text-wrap: balance;
       font-weight: bold;
-      color: #554534;
+      color: $header-color;
       background-color: rgb(241, 231, 215);
       padding: 15px;
       margin-top: 0px;
@@ -106,7 +105,6 @@ import "@fontsource-variable/oswald";
     &__bread-text {
       font-family: "Rokkitt Variable", serif;
       font-size: $fs-600;
-     
     }
 
     &__link-to {
@@ -116,10 +114,10 @@ import "@fontsource-variable/oswald";
   }
   @media (min-width: $medium-breakpoint) {
     .about {
-      margin: 0 auto 80px auto;
+      margin: $marginTB;
       max-width: 1000px;
-      
-      &__unique-parent{
+
+      &__unique-parent {
         display: flex;
         justify-content: flex-start;
       }
@@ -128,14 +126,11 @@ import "@fontsource-variable/oswald";
         padding: unset;
         background-color: unset;
         font-size: $fs-500;
-        
       }
       &__bread-text {
         font-size: $fs-600;
-        line-height: 20px;
+        
       }
-    } 
+    }
   }
 </style>
-
-
