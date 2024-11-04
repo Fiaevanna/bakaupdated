@@ -8,15 +8,17 @@ import "@fontsource-variable/oswald";
 <BaseLayout activeHref={"/about"}>
   <div slot="main" class="about">
     <h1 class="about__title">Welcome</h1>
-    <p class="about__bread-text">
-      This is my webshop, where the focus is on both appearance and
-      functionality.
-    </p>
     <div class="about__unique-parent">
       <p class="about__unique-text">
         The name "BAKA" is inspired by the Japanese word meaning "fool."
       </p>
     </div>
+    <p class="about__header">About</p>
+    <p class="about__bread-text">
+      This is my webshop, where the focus is on both appearance and
+      functionality.
+    </p>
+    
 
     <p class="about__bread-text">
       About two years ago, I started this project with the goal of learning the
@@ -49,14 +51,19 @@ import "@fontsource-variable/oswald";
       When it came to styling, I upgraded my CSS to SCSS to structure my
       elements more efficiently. <br />
       <br />However, during the process, I realized that the code became
-      difficult to read and cluttered.  <br /> <br> After some research, I decided to use BEM
-      (Block, Element, Modifier) as a method to create reusable components and
-      maintain a cleaner code structure. <br />
+      difficult to read and cluttered. <br />
+      <br /> After some research, I decided to use BEM (Block, Element, Modifier)
+      as a method to create reusable components and maintain a cleaner code structure.
+      <br />
       <br /> This approach resulted in a clearer and more streamlined design.
     </p>
     <p class="about__header">Link to code</p>
     <p class="about__bread-text">
-     Check out my <a class="about__link-to" href="https://github.com/Fiaevanna/bakaupdated">github </a>
+      Check out my <a
+        class="about__link-to"
+        href="https://github.com/Fiaevanna/bakaupdated"
+        >github
+      </a>
     </p>
   </div>
 </BaseLayout>
@@ -80,12 +87,12 @@ import "@fontsource-variable/oswald";
       font-size: $fs-xl;
       text-transform: uppercase;
       color: #5e4c38;
+      margin-top: 20px;
       margin-bottom: 20px;
     }
     &__unique-parent {
       display: flex;
       justify-content: center;
-      
     }
     &__unique-text {
       font-size: 18px;
@@ -99,13 +106,36 @@ import "@fontsource-variable/oswald";
     &__bread-text {
       font-family: "Rokkitt Variable", serif;
       font-size: $fs-600;
-      text-wrap: balance;
+     
     }
 
-    &__link-to{
-        text-decoration: underline;
-        color: rgb(45, 45, 153);
+    &__link-to {
+      text-decoration: underline;
+      color: rgb(45, 45, 153);
     }
   }
+  @media (min-width: $medium-breakpoint) {
+    .about {
+      margin: 0 auto 80px auto;
+      max-width: 1000px;
+      
+      &__unique-parent{
+        display: flex;
+        justify-content: flex-start;
+      }
+      &__unique-text {
+        width: 100%;
+        padding: unset;
+        background-color: unset;
+        font-size: $fs-500;
+        
+      }
+      &__bread-text {
+        font-size: $fs-600;
+        line-height: 20px;
+      }
+    } 
+  }
 </style>
+
 
