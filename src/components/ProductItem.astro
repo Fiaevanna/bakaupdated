@@ -26,13 +26,14 @@ const largeImage = images.find((image) => image.isActive === true);
   const previewImages = document.querySelectorAll(".product__preview-image");
 
   previewImages.forEach((preview) => {
-    preview.addEventListener("click", () => {
+    const handleChangeImage = () => {
       const productId = preview.dataset.productId;
       const largeImage = document.getElementById(`largeImage-${productId}`)!;
       const clickedSrc = preview.getAttribute("src");
-
       largeImage.src = clickedSrc;
-    });
+    };
+    preview.addEventListener("mouseover", handleChangeImage);
+    preview.addEventListener("click", handleChangeImage);
   });
 </script>
 
@@ -178,11 +179,9 @@ const largeImage = images.find((image) => image.isActive === true);
       margin: 0;
       font-family: "Rokkitt Variable", serif;
       font-weight: bold;
-    
     }
     &__price-discount {
       color: #ff0c0c;
-      
     }
     &__original-price {
       text-decoration: line-through;
