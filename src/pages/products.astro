@@ -3,7 +3,7 @@ import BaseLayout from "../layout/BaseLayout.astro";
 import ProductItem from "../components/ProductItem.astro";
 import { getProducts } from "../services/products";
 
-const products = getProducts();
+const products = await getProducts();
 ---
 
 <BaseLayout activeHref={"/products"}>
@@ -12,10 +12,10 @@ const products = getProducts();
       products.map((product) => (
         <ProductItem
           id={product.id}
-          images={product.preview}
+          images={product.previewImages}
           title={product.title}
           price={product.price}
-          sizes={product.sizes}
+          sizes={product.product_sizes.map((productSize) => productSize.size )}
           originalPrice={product.originalPrice}
           discountPercantage={product.discountPercentage}
         />
@@ -48,3 +48,13 @@ const products = getProducts();
     }
   }
 </style>
+
+
+<!--  
+//Example usage of db variable
+
+db.query.products.findMany({
+  with: { mockProducts: true,mockPreviewImages: true, mockSizes: true },
+});
+
+ -->

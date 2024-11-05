@@ -7,7 +7,7 @@ import type {
 } from "./schema";
 import { previewImages, product_sizes, products, sizes } from "./schema";
 
-const mockProducts: InsertProducts[] = [
+export const mockProducts: InsertProducts[] = [
   {
     id: 1,
     title: `Baka: Sand Hoodie`,
@@ -364,6 +364,6 @@ const main = async () => {
   await clearMockData();
   console.log("INSERTING DATA");
   await insertMockData();
-  console.log("SHIT IS DONE JARA JARA");
+  console.log("SHIT IS DONE");
 };
 main();

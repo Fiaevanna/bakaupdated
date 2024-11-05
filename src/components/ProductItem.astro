@@ -6,14 +6,19 @@ interface Image {
   isActive: boolean;
 }
 
+
+interface Size {
+  id: number;
+  value: string;
+} 
 interface Props {
   images: Image[];
   title: string;
   price: string;
-  sizes: string[];
-  originalPrice?: string;
-  discountPercantage?: string;
-  id: string;
+  sizes: Size[];
+  originalPrice?: string | null;
+  discountPercantage?: string | null;
+  id: number;
 }
 
 const { images, title, sizes, price, originalPrice, discountPercantage, id } =
@@ -96,7 +101,7 @@ const largeImage = images.find((image) => image.isActive === true);
     <div class="product__info-actions">
       <select class="product__size-select" name="size" id="size">
         <option class="product__info-hidden">Select size</option>
-        {sizes.map((size) => <option value={size}>{size}</option>)}
+        {sizes.map((size) => <option value={size.value}>{size.value}</option>)}
       </select>
       <Button class="product__info-button">Add to cart</Button>
     </div>

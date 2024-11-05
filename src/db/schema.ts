@@ -4,8 +4,8 @@ import { text, integer, sqliteTable } from "drizzle-orm/sqlite-core";
 /* setting up tables and there references */
 export const products = sqliteTable("products", {
   id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
-  title: text("title"),
-  price: text("price"),
+  title: text("title").notNull(),
+  price: text("price").notNull(),
   originalPrice: text("originalPrice"),
   discountPercentage: text("discountPercentage"),
 });
@@ -13,19 +13,19 @@ export const products = sqliteTable("products", {
 export const previewImages = sqliteTable("previewImages", {
   id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
   productId: integer("productId").references(() => products.id),
-  imageUrl: text("imageUrl"),
-  isActive: integer("isActive", { mode: "boolean" }),
+  imageUrl: text("imageUrl").notNull(),
+  isActive: integer("isActive", { mode: "boolean" }).notNull(),
 });
 
 export const sizes = sqliteTable("sizes", {
   id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
-  value: text("value"),
+  value: text("value").notNull(),
 });
 
 /* junction-table (koppling) */
 export const product_sizes = sqliteTable("product_sizes", {
-  productId: integer("productId").references(() => products.id),
-  sizeId: integer("sizeId").references(() => sizes.id),
+  productId: integer("productId").references(() => products.id).notNull(),
+  sizeId: integer("sizeId").references(() => sizes.id).notNull(),
 });
 
 /* setting up the relations between tables */

@@ -11,7 +11,7 @@ import {
   relationForProductSizes,
 } from "./schema";
 
-const sqlite = new Database("./baka-app.db");
+const sqlite = new Database("./src/db/baka-app.db");
 
 /* Drizzle variable for using database */
 export const db = drizzle(sqlite, {
@@ -32,7 +32,7 @@ export const db = drizzle(sqlite, {
 Example usage of db variable
 
 db.query.products.findMany({
-  with: { previewImages: true, product_sizes: true },
+  with: { mockProducts: true,mockPreviewImages: true, mockSizes: true },
 });
 
 */
