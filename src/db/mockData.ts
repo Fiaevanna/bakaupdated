@@ -70,27 +70,27 @@ export const mockProducts: InsertProducts[] = [
 const mockPreviewImages: InsertPreviewImages[] = [
   // Baka: Sand Hoodie (id: mockProducts[0].id)
   {
-    imageUrl: "/images/Person1/homepic1.png",
+    imageUrl: "/images/person1/homepic1.png",
     isActive: true,
     productId: mockProducts[0].id,
   },
   {
-    imageUrl: "/images/Person1/sand1.png",
+    imageUrl: "/images/person1/sand1.png",
     isActive: false,
     productId: mockProducts[0].id,
   },
   {
-    imageUrl: "/images/Person1/sand2.png",
+    imageUrl: "/images/person1/sand2.png",
     isActive: false,
     productId: mockProducts[0].id,
   },
   {
-    imageUrl: "/images/Person1/sand3.webp",
+    imageUrl: "/images/person1/sand3.webp",
     isActive: false,
     productId: mockProducts[0].id,
   },
   {
-    imageUrl: "/images/Person1/sand5.webp",
+    imageUrl: "/images/person1/sand5.webp",
     isActive: false,
     productId: mockProducts[0].id,
   },
@@ -124,54 +124,54 @@ const mockPreviewImages: InsertPreviewImages[] = [
 
   // Baka: Gray Hoodie (id: mockProducts[2].id)
   {
-    imageUrl: "/images/Person4/gray1.png",
+    imageUrl: "/images/person4/gray1.png",
     isActive: false,
     productId: mockProducts[2].id,
   },
   {
-    imageUrl: "/images/Person4/gray2.png",
+    imageUrl: "/images/person4/gray2.png",
     isActive: false,
     productId: mockProducts[2].id,
   },
   {
-    imageUrl: "/images/Person4/gray3.webp",
+    imageUrl: "/images/person4/gray3.webp",
     isActive: false,
     productId: mockProducts[2].id,
   },
   {
-    imageUrl: "/images/Person4/gray4.png",
+    imageUrl: "/images/person4/gray4.png",
     isActive: false,
     productId: mockProducts[2].id,
   },
   {
-    imageUrl: "/images/Person4/gray5.png",
+    imageUrl: "/images/person4/gray5.png",
     isActive: true,
     productId: mockProducts[2].id,
   },
 
   // Baka: Green Hoodie (id: mockProducts[3].id)
   {
-    imageUrl: "/images/Person2/green1.png",
+    imageUrl: "/images/person2/green1.png",
     isActive: true,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/Person2/green2.webp",
+    imageUrl: "/images/person2/green2.webp",
     isActive: false,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/Person2/green3.webp",
+    imageUrl: "/images/person2/green3.webp",
     isActive: false,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/Person2/green4.png",
+    imageUrl: "/images/person2/green4.png",
     isActive: false,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/Person2/green5.png",
+    imageUrl: "/images/person2/green5.png",
     isActive: false,
     productId: mockProducts[3].id,
   },
@@ -232,27 +232,27 @@ const mockPreviewImages: InsertPreviewImages[] = [
 
   // Baka: Viol Hoodie (id: mockProducts[6].id)
   {
-    imageUrl: "/images/Person3/viol1.png",
+    imageUrl: "/images/person3/viol1.png",
     isActive: true,
     productId: mockProducts[6].id,
   },
   {
-    imageUrl: "/images/Person3/viol2.webp",
+    imageUrl: "/images/person3/viol2.webp",
     isActive: false,
     productId: mockProducts[6].id,
   },
   {
-    imageUrl: "/images/Person3/viol3.png",
+    imageUrl: "/images/person3/viol3.png",
     isActive: false,
     productId: mockProducts[6].id,
   },
   {
-    imageUrl: "/images/Person3/viol4.png",
+    imageUrl: "/images/person3/viol4.png",
     isActive: false,
     productId: mockProducts[6].id,
   },
   {
-    imageUrl: "/images/Person3/viol5.png",
+    imageUrl: "/images/person3/viol5.png",
     isActive: false,
     productId: mockProducts[6].id,
   },
