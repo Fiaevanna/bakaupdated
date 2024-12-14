@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layout/BaseLayout.astro";
+---
+
+<BaseLayout activeHref={"/cart"}>
+  <div slot="main" class="cart">
+    <h1 class="cart__title">Cart in progress..</h1>
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  @import "../styles/_variables.scss";
+
+  .cart {
+    &__title {
+      display: flex;
+      flex-direction: column;
+      font-size: $fs-xl;
+      text-transform: uppercase;
+      color: $header-color;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+</style>

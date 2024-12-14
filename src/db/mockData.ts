@@ -151,27 +151,27 @@ const mockPreviewImages: InsertPreviewImages[] = [
 
   // Baka: Green Hoodie (id: mockProducts[3].id)
   {
-    imageUrl: "/images/person2/green1.png",
+    imageUrl: "/images/Person2/green1.png",
     isActive: true,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/person2/green2.webp",
+    imageUrl: "/images/Person2/green2.webp",
     isActive: false,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/person2/green3.webp",
+    imageUrl: "/images/Person2/green3.webp",
     isActive: false,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/person2/green4.png",
+    imageUrl: "/images/Person2/green4.png",
     isActive: false,
     productId: mockProducts[3].id,
   },
   {
-    imageUrl: "/images/person2/green5.png",
+    imageUrl: "/images/Person2/green5.png",
     isActive: false,
     productId: mockProducts[3].id,
   },
