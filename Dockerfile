@@ -13,13 +13,19 @@ COPY . .
 
 RUN npm run build
 
-RUN apt install nginx
+FROM nginx:1.25-alpine AS runtime
+
+RUN curl -fsSL https://fnm.vercel.app/install | bash
+RUN source ~/.bashrc
+RUN fnm use --install-if-missing 22
+RUN node -v
+
 
 COPY ./docker-start.sh ./docker-start.sh
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-RUN cp -fr /app/dist /usr/share/nginx/html
+COPY --from=base /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["sh", "/app/docker-start.sh"]
+CMD ["sh", "docker-start.sh"]
