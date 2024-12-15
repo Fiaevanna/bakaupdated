@@ -3,7 +3,7 @@ import { text, integer, sqliteTable } from "drizzle-orm/sqlite-core";
 
 /* setting up tables and there references */
 export const products = sqliteTable("products", {
-  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
+  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }).notNull(),
   title: text("title").notNull(),
   price: text("price").notNull(),
   originalPrice: text("originalPrice"),
@@ -11,14 +11,14 @@ export const products = sqliteTable("products", {
 });
 
 export const previewImages = sqliteTable("previewImages", {
-  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
-  productId: integer("productId").references(() => products.id),
+  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }).notNull(),
+  productId: integer("productId").references(() => products.id).notNull(),
   imageUrl: text("imageUrl").notNull(),
   isActive: integer("isActive", { mode: "boolean" }).notNull(),
 });
 
 export const sizes = sqliteTable("sizes", {
-  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }),
+  id: integer("id",{ mode: 'number' }).primaryKey({ autoIncrement: true }).notNull(),
   value: text("value").notNull(),
 });
 
