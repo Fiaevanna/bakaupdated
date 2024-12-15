@@ -15,6 +15,8 @@ RUN npm run build
 
 FROM nginx AS runtime
 
+RUN apt-get -y unzip
+
 RUN curl -fsSL https://fnm.vercel.app/install | bash
 RUN source ~/.bashrc
 RUN fnm use --install-if-missing 22
