@@ -22,4 +22,4 @@ COPY --from=base /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["/bin/bash", "./docker-start.sh"]
+CMD ["bash", "./docker-start.sh"]
