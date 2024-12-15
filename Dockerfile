@@ -13,13 +13,13 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.25-alpine AS runtime
+RUN apt install nginx
 
 COPY ./docker-start.sh ./docker-start.sh
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=base /app/dist /usr/share/nginx/html
+RUN cp -fr /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["sh", "docker-start.sh"]
+CMD ["sh", "/app/docker-start.sh"]
