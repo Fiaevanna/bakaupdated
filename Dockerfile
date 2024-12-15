@@ -13,7 +13,7 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.25-alpine AS runtime
+FROM nginx AS runtime
 
 RUN curl -fsSL https://fnm.vercel.app/install | bash
 RUN source ~/.bashrc
