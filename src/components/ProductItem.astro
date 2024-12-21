@@ -1,5 +1,4 @@
 ---
-import { Image as AstroImage } from "astro:assets";
 import Button from "../components/Button.astro";
 import "@fontsource-variable/rokkitt";
 interface Image {
@@ -49,9 +48,7 @@ const largeImage = images.find((image) => image.isActive === true);
 <div class="product">
   <div class="product__images">
     <div class="product__large-image-parent">
-      <AstroImage
-        width={1200}
-        height={1600}
+      <img
         src={largeImage!.imageUrl!}
         class="product__large-image"
         alt={title}
@@ -62,9 +59,7 @@ const largeImage = images.find((image) => image.isActive === true);
     <div class="product__preview-images-parent">
       {
         images.map((image) => (
-          <AstroImage
-            width={1200}
-            height={1600}
+          <img
             src={image.imageUrl}
             class={`product__preview-image`}
             alt={title}
@@ -141,7 +136,6 @@ const largeImage = images.find((image) => image.isActive === true);
     }
     &__images {
       margin-bottom: 20px;
-      
     }
     &__preview-image {
       width: 30%;
