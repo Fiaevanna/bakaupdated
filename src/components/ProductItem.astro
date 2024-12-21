@@ -1,4 +1,5 @@
 ---
+import { Image as AstroImage } from "astro:assets";
 import Button from "../components/Button.astro";
 import "@fontsource-variable/rokkitt";
 interface Image {
@@ -6,11 +7,10 @@ interface Image {
   isActive: boolean;
 }
 
-
 interface Size {
   id: number;
   value: string;
-} 
+}
 interface Props {
   images: Image[];
   title: string;
@@ -28,12 +28,16 @@ const largeImage = images.find((image) => image.isActive === true);
 ---
 
 <script>
-  const previewImages = document.querySelectorAll<HTMLImageElement>(".product__preview-image");
+  const previewImages = document.querySelectorAll<HTMLImageElement>(
+    ".product__preview-image"
+  );
 
   previewImages.forEach((preview) => {
     const handleChangeImage = () => {
       const productId = preview.dataset.productId;
-      const largeImage = document.querySelector<HTMLImageElement>(`#largeImage-${productId}`)!;
+      const largeImage = document.querySelector<HTMLImageElement>(
+        `#largeImage-${productId}`
+      )!;
       const clickedSrc = preview.getAttribute("src")!;
       largeImage.src = clickedSrc;
     };
@@ -45,8 +49,10 @@ const largeImage = images.find((image) => image.isActive === true);
 <div class="product">
   <div class="product__images">
     <div class="product__large-image-parent">
-      <img
-        src={largeImage?.imageUrl}
+      <AstroImage
+        width={1200}
+        height={1600}
+        src={largeImage!.imageUrl!}
         class="product__large-image"
         alt={title}
         id={`largeImage-${id}`}
@@ -56,7 +62,9 @@ const largeImage = images.find((image) => image.isActive === true);
     <div class="product__preview-images-parent">
       {
         images.map((image) => (
-          <img
+          <AstroImage
+            width={1200}
+            height={1600}
             src={image.imageUrl}
             class={`product__preview-image`}
             alt={title}
@@ -114,6 +122,7 @@ const largeImage = images.find((image) => image.isActive === true);
   .product {
     &__large-image {
       width: 100%;
+      height: unset;
     }
 
     &__title {
@@ -132,10 +141,12 @@ const largeImage = images.find((image) => image.isActive === true);
     }
     &__images {
       margin-bottom: 20px;
+      
     }
     &__preview-image {
       width: 30%;
       margin-top: 10px;
+      height: unset;
 
       &:hover {
         opacity: 80%;
