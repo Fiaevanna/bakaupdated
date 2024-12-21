@@ -1,6 +1,5 @@
 
 import { db } from "../db/client";
-import { sizes } from "../db/schema";
 
 /* här ska in i product sen 
 const result = await db.select().from(users); */
