@@ -18,3 +18,4 @@ export const getProducts = async () => {
 
   return resultFromDb;
 };
+  

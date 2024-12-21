@@ -15,7 +15,7 @@ const products = await getProducts();
           images={product.previewImages}
           title={product.title}
           price={product.price}
-          sizes={product.product_sizes.map((productSize) => productSize.size )}
+          sizes={product.product_sizes.map((productSize) => productSize.size)}
           originalPrice={product.originalPrice}
           discountPercantage={product.discountPercentage}
         />
@@ -48,5 +48,3 @@ const products = await getProducts();
     }
   }
 </style>
-
-
