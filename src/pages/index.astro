@@ -5,7 +5,7 @@ import Button from "../components/Button.astro";
 import BaseLayout from "../layout/BaseLayout.astro";
 ---
 
-<BaseLayout activeHref={'/'}>
+<BaseLayout activeHref={"/"}>
   <a href="/products" slot="header-cta"> <Button>Get Yours Now!</Button> </a>
 
   <div slot="main" class="landing-page__images">
@@ -24,9 +24,8 @@ import BaseLayout from "../layout/BaseLayout.astro";
 
 <style lang="scss">
   @import "../styles/_variables.scss";
- main{
+  main {
     padding: unset !important;
-    
   }
   .landing-page {
     &__images {
@@ -49,17 +48,11 @@ import BaseLayout from "../layout/BaseLayout.astro";
       &__images {
         height: 100%;
         overflow: hidden;
-       
       }
 
       &__image {
         width: 50%;
-       
-
       }
     }
   }
-
-
 </style>
-

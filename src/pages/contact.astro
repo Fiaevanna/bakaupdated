@@ -6,34 +6,45 @@ import "@fontsource-variable/rokkitt";
 import "@fontsource-variable/oswald";
 import Button from "../components/Button.astro";
 
+const formData = { order: "", email: "", message: "" };
 const errors = { order: "", email: "", message: "" };
+
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-    const order = data.get("order");
-    const email = data.get("email");
-    const message = data.get("message");
-    console.log(data);
-    if (order && typeof order !== "string") {
-      errors.order += "Please enter correcct order number.";
-    }
-    if (typeof email !== "string") {
+    formData.order = data.get("order")?.toString() || "";
+    formData.email = data.get("email")?.toString() || "";
+    formData.message = data.get("message")?.toString() || "";
+
+    if (typeof formData.email !== "string") {
       errors.email += "Please enter an email.";
     }
-    if (typeof message !== "string" || message.length < 5) {
-      errors.message += "Please fill out full message.";
+    if (typeof formData.message !== "string" || formData.message.length < 5) {
+      errors.message += "Please fill out full message more than 5 characters.";
     }
     const hasErrors = Object.values(errors).some((msg) => msg);
     if (!hasErrors) {
       return Astro.redirect("/success");
     }
   } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
+    console.log(error);
   }
 }
 ---
+
+<script>
+  const HandleOnError = () => {
+    const orderMessageErrorEl = document.getElementById("orderMessageError");
+    if (orderMessageErrorEl) {
+      orderMessageErrorEl.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
+  };
+  HandleOnError();
+</script>
 
 <BaseLayout activeHref={"/contact"}>
   <div slot="main" class="layout">
@@ -46,20 +57,22 @@ if (Astro.request.method === "POST") {
         <form method="POST">
           <div class="contact__form-group-container">
             <div class="contact__form-group">
-              <label for="order" class="contact__form-label">Order number</label
-              >
+              <label for="order" class="contact__form-label"
+                >Order number
+              </label>
               <input
+                value={formData.order}
                 id="order"
                 name="order"
                 class="contact__form-input"
                 placeholder="Your order number (optional)"
                 type="text"
               />
-              {errors.order && <p>{errors.order}</p>}
             </div>
             <div class="contact__form-group">
               <label for="email" class="contact__form-label">Email</label>
               <input
+                value={formData.email}
                 id="email"
                 required
                 name="email"
@@ -67,7 +80,13 @@ if (Astro.request.method === "POST") {
                 placeholder="Your email (required)"
                 type="email"
               />
-              {errors.email && <p>{errors.email}</p>}
+              {
+                errors.email && (
+                  <p class="contact__errorMessage" id="orderEmailError">
+                    {errors.email}
+                  </p>
+                )
+              }
             </div>
 
             <div class="contact__form-group">
@@ -77,8 +96,16 @@ if (Astro.request.method === "POST") {
                 id="message"
                 required
                 name="message"
-                placeholder="Your message (required)"></textarea>
-              {errors.message && <p>{errors.message}</p>}
+                placeholder="Your message (required)"
+                >{formData.message}</textarea
+              >
+              {
+                errors.message && (
+                  <p class="contact__errorMessage" id="orderMessageError">
+                    {errors.message}
+                  </p>
+                )
+              }
             </div>
           </div>
 
@@ -87,82 +114,85 @@ if (Astro.request.method === "POST") {
       </div>
     </div>
   </div>
-
-  <style lang="scss">
-    @import "../styles/_variables.scss";
-
-    .contact {
-      &__box {
-        width: 100%;
-        box-sizing: border-box;
-        height: 500px;
-        margin-bottom: 40px;
-      }
-
-      &__header {
-        color: #554534;
-        text-transform: uppercase;
-        font-size: $fs-xl;
-        margin-bottom: 20px;
-        margin-top: 20px;
-      }
-      &__info-text {
-        font-size: $fs-600;
-        font-family: "Rokkitt Variable", serif;
-      }
-      /* Form */
-      &__form-group-container {
-        display: grid;
-        gap: 2rem;
-        margin-top: 2rem;
-        color: $header-color;
-        font-size: $fs-500;
-        font-weight: bold;
-      }
-
-      &__form-group {
-        display: flex;
-        flex-direction: column;
-      }
-
-      &__form-label {
-        margin-bottom: 0.5rem;
-      }
-
-      &__form-input,
-      &__form-textarea {
-        padding: 0.5rem;
-        border: 1px solid #000000;
-        background-color: #ffffff;
-        box-sizing: border-box;
-        display: flex;
-        height: 2.5rem;
-        width: 100%;
-        border-radius: 0.375rem;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-      }
-      &__form-textarea {
-        min-height: 120px;
-      }
-
-      &__form-submit {
-        font-family: "Rokkitt Variable", serif;
-        width: 100%;
-        margin-top: 1.2rem;
-        background-color: #f5f4fa;
-        color: #554534;
-        font-size: $fs-500;
-        font-weight: bold;
-        padding: 13px 5px;
-        border-radius: 0.375rem;
-      }
-    }
-    @media (min-width: $smallmedium-breakpoint) {
-      .contact {
-        max-width: 1000px;
-        margin: $marginTB;
-      }
-    }
-  </style>
 </BaseLayout>
+
+<style lang="scss">
+  @import "../styles/_variables.scss";
+
+  .contact {
+    &__box {
+      width: 100%;
+      box-sizing: border-box;
+      height: 500px;
+      margin-bottom: 40px;
+    }
+
+    &__header {
+      color: #554534;
+      text-transform: uppercase;
+      font-size: $fs-xl;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+    &__info-text {
+      font-size: $fs-600;
+      font-family: "Rokkitt Variable", serif;
+    }
+    /* Form */
+    &__form-group-container {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+      color: $header-color;
+      font-size: $fs-500;
+      font-weight: bold;
+    }
+
+    &__form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__form-label {
+      margin-bottom: 0.5rem;
+    }
+
+    &__form-input,
+    &__form-textarea {
+      padding: 0.5rem;
+      border: 1px solid #000000;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      display: flex;
+      height: 2.5rem;
+      width: 100%;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    &__form-textarea {
+      min-height: 120px;
+    }
+
+    &__form-submit {
+      font-family: "Rokkitt Variable", serif;
+      width: 100%;
+      margin-top: 1.2rem;
+      background-color: #f5f4fa;
+      color: #554534;
+      font-size: $fs-500;
+      font-weight: bold;
+      padding: 13px 5px;
+      border-radius: 0.375rem;
+    }
+    &__errorMessage {
+      color: red;
+    }
+  }
+  @media (min-width: $smallmedium-breakpoint) {
+    .contact {
+      max-width: 1000px;
+      margin: $marginTB;
+    }
+  }
+</style>
